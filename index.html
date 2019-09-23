@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>XYZ Editor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="inputs">
+                <h1>Input</h1>
+                <form action="" class="input">
+                    <textarea name="input-text" id="input-text" rows="40"></textarea>
+                </form>
+
+                <h1>Modifier</h1>
+                <form action="" class="modifiders">
+                    <div class="x">
+                        <label for="x-modifier">X</label>
+                        <input type="number" id="x-modifier" name="x-modifier">
+                    </div>
+                    <div class="z">
+                        <label for="z-modifier">Z</label>
+                        <input type="number" id="z-modifier" name="z-modifier">
+                    </div>
+                    <div class="y">
+                        <label for="y-modifier">Y</label>
+                        <input type="number" id="y-modifier" name="y-modifier">
+                    </div>                
+                </form>
+
+                <div class="do-magic">
+                    <button class="button" id="magic">DO MAGIC</button>
+                </div>
+            </div>
+
+            <div class="outputs">
+                <h1>Output</h1>
+                <form action="" class="input">
+                    <textarea name="put-text" id="ouput-text" rows="40"></textarea>
+                </form>
+                <!-- <div class="reset">
+                    <button class="button" id="reset">RESET</button>
+                </div>  -->
+                <div class="copy">
+                    <button class="button" id="copy">COPY</button>
+                </div> 
+            </div>
+        </div>  
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
