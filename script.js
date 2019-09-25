@@ -1,5 +1,4 @@
 // Setup
-
 let inputText = getEl("#input-text");
 let outputText = getEl("#ouput-text");
 let xMod = getEl("#x-modifier");
@@ -34,7 +33,7 @@ function magic(){
     for(let i=0; i<inputArray.length; i++){
 
         // if line begins with Pos= then take it apart
-        if(inputArray[i].startsWith(`  Pos=`)){
+        if(inputArray[i].includes(`Pos=`)){
             posString = inputArray[i].slice(7);
             posString = posString.slice(0, -1);
             posArray = posString.split(',');
