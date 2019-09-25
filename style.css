@@ -5,6 +5,10 @@ body {
     background: linear-gradient(to left, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
 
+h1 {
+    text-align: center;
+}
+
 .container {
     display: grid;
     grid-template-columns: 50% 50%;

@@ -1,64 +1,60 @@
 // Setup
 
-var inputText = document.querySelector("#input-text");
-var outputText = document.querySelector("#ouput-text");
-var xMod = document.querySelector("#x-modifier");
-var zMod = document.querySelector("#z-modifier");
-var yMod = document.querySelector("#y-modifier");
-var inputArray = [];
-var posArray = [];
-var outputArray = []
-var posString;
-var buildString = "";
-var buildOutputString = "";
-var x;
-var y;
-var z;
-var xLength;
-var yLength;
-var zLength;
+let inputText = getEl("#input-text");
+let outputText = getEl("#ouput-text");
+let xMod = getEl("#x-modifier");
+let zMod = getEl("#z-modifier");
+let yMod = getEl("#y-modifier");
 
 // Event Listeners 
-document.querySelector("#magic").addEventListener("click", magic)
-document.querySelector("#copy").addEventListener("click", copyText)
-
+getEl("#magic").addEventListener("click", magic);
+getEl("#test").addEventListener("click", test);
+getEl("#copy").addEventListener("click", copyText);
 
 function magic(){
 
-    // capture
+    // variable setup
+    let x, y ,z, posString;
+    let buildPosString = '';
+    let buildOutputString = '';
+
+    // array setup
+    let inputArray = [];
+    let posArray = [];
+    let outputArray = [];
+
+    // capture x, z, y
     inputArray = inputText.value.split('\n');
     x = parseFloat(xMod.value);
     z = parseFloat(zMod.value);
     y = parseFloat(yMod.value);
-    console.log(inputArray);
+    console.log(`Modifying X, Z, Y by ${x}, ${z}, ${y}`);
 
     // do magic (split into array)
-    for(var i=0; i<inputArray.length; i++){
+    for(let i=0; i<inputArray.length; i++){
 
         // if line begins with Pos= then take it apart
-        if(inputArray[i].indexOf('Pos=') >1){
+        if(inputArray[i].startsWith(`  Pos=`)){
             posString = inputArray[i].slice(7);
             posString = posString.slice(0, -1);
             posArray = posString.split(',');
 
-            // modify the array using the inputted parameters
+            // modify the array using the captured parameters
             // rounds to 6 DP
             posArray[0] = (parseFloat(posArray[0]) + x).toFixed(6);
             posArray[1] = (parseFloat(posArray[1]) + z).toFixed(6);
             posArray[2] = (parseFloat(posArray[2]) + y).toFixed(6);
 
             // rebuild the array
-            buildString = "  Pos=(" + posArray[0] + "," + posArray[1] + "," + posArray[2] + ")"
-            inputArray[i] = buildString;
+            buildPosString = `  Pos=(${posArray[0]},${posArray[1]},${posArray[2]})`
+            inputArray[i] = buildPosString;
         }
     }
 
     // rebuild string
-    for(var i=0; i<inputArray.length; i++){
-        if(i > 0){
-            
-        }
-        buildOutputString = buildOutputString + inputArray[i];
+    for(let i=0; i<inputArray.length; i++){
+
+        buildOutputString = `${buildOutputString}${inputArray[i]}`;
 
         // don't add an additional line break at the end
         if(i<(inputArray.length-1)){
@@ -71,12 +67,102 @@ function magic(){
     // reset arrays and strings when complete
     inputArray = [];
     magicArray = [];
-    buildString = "";
+    buildPosString = "";
 }
 
 // copy text to clipboard
 function copyText(){
-    var copyText = outputText = document.querySelector("#ouput-text");
+    let copyText = outputText = getEl("#ouput-text");
     copyText.select();
     document.execCommand("copy");
+}
+
+// function to replace document.querySelector
+function getEl(str){
+    return document.querySelector(str);
+}
+
+// insert test content 
+function test(){
+    console.log(`Inserting Test Data`);
+    inputText.value = `ReflectionProbe=IrradProbe_0
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(166.728271,118.276535,712.682617)
+}
+
+ReflectionProbe=IrradProbe_2
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(76.602989,41.106003,307.891052)
+}
+
+ReflectionProbe=IrradProbe_3
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(277.683014,31.195002,60.680016)
+}
+
+ReflectionProbe=IrradProbe_4
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(664.789978,11.888999,684.612915)
+}
+
+ReflectionProbe=IrradProbe_5
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(276.761017,14.844002,515.578003)
+}
+
+ReflectionProbe=IrradProbe_6
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(128.823059,26.276009,652.715088)
+}
+
+ReflectionProbe=IrradProbe_7
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(125.994019,28.798008,891.934082)
+}
+
+ReflectionProbe=IrradProbe_8
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(411.637024,10.437997,900.157837)
+}
+
+ReflectionProbe=IrradProbe_9
+{
+  Type=DiffuseProbe
+  TextureSize=(1024)
+  UpdateRate=(0.500)
+  StaticSwitch=(1000.000)
+  Pos=(37.424007,41.163002,756.957031)
+}`
 }
