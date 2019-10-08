@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #0F2027; 
+    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027); 
+    background: linear-gradient(to left, #2C5364, #203A43, #0F2027); 
+    height: 100vh;
+    color: #E2E5E6;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.sidebar {
+    height: 100vh;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #49B099;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0%;
+    white-space: nowrap;
+}
+
+.button {
+    color: #E2E5E6;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: #9A059F;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    text-align: center;
+    width: 150px;
+    transition: box-shadow 0.2s;
+    display: block;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button:hover {
+    box-shadow: -5px 5px 0px 0px #49B099;
+}
+
+.button:focus {
+    outline: none;
+}
+
+/* HEADER */
+
+#header {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-title {
+    text-align: left;
+}
+
+#header h1 {
+    margin-top: 0;
+}
+
+#header img {
+    width: 75%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#header h3 {
+    font-size: 2.25rem;
+    color: #49B099;
+    display: inline;
+    margin: 0 1.5rem;
+}
+
+#header a,
+#header a:active,
+#header a:visited {
+    text-decoration: none;
+    color: #49B099;
+    transition: all 0.2s;
+    border-bottom: 0px solid #9A059F;
+}
+
+#header a:hover{
+    color: #9A059F;
+    border-bottom: 5px solid #49B099;
+}
+
+/* CONTENT */
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+textarea {
+    width: 90%;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #9A059F;
+}
+
+footer img {
+    width: 25%;
+}
+
+.contact {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.contact a {
+    color: #E2E5E6;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.contact a:hover {
+    color: #49B099
+}
+
+.contact:visited,
+.contact:active {
+    color: #E2E5E6;
+}
+
+.copyright {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+@media(max-width: 1365px){
+    section {
+        grid-template-columns: 200px auto;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width: 1040px){
+    section {
+        grid-template-columns: 160px auto;
+    }
+}
+
+@media(max-width: 799px){
+    section {
+        grid-template-columns: 75px auto;
+    }
+
+    .sidebar h2 {
+        font-size: 2rem;
+        transform: rotate(-90deg)
+    }
+
+    #xyz .emoji {
+        margin-bottom: 6rem;
+    }
+}
+
+@media (max-width: 770px){
+
+    .package-1,
+    .package-2,
+    .package-3 {
+        grid-column: 1 / span 6;
+    }
+
+    .service-1,
+    .service-2,
+    .service-3,
+    .service-4,
+    .service-5,
+    .service-6 {
+        grid-column: 1 / span 6;
+    }
+
+    .clients-content {
+        padding-right: 2rem;
+    }
+
+    .client-image {
+        display: none;
+    }
+
+    .client-details {
+        grid-column: 1 / span 2;
+    }
+}
+
+@media(max-width: 460px){
+
+    #header h2 {
+        font-size: 1rem;
+    }
+
+    #header h3 {
+        display: block;
+    }
+
+    nav {
+        margin-bottom: 2rem;
+    }
+
+    section {
+        grid-template-columns: 50px auto;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+
+    .recommended-text {
+        font-size: 1rem;
+    }
+
+    .contact {
+        padding-bottom: 1rem;
+    }
+
+    .email, .github {
+        grid-column: 1 / span 2;
+    }
+
+    .twitter, .strava {
+        grid-column: 3 / span 2;
+    }
+}
+
+@media(orientation: landscape) and (max-height: 400px) {
+    body {
+        background: #203A43; 
+    }
+}

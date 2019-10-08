@@ -3,59 +3,123 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>XYZ Editor</title>
-        <meta name="description" content="">
+        <title>XYZ Editor - Dave Ellis Visuals - Dundee Web Design</title>
+        <meta name="description" content="XYZ Editor - Dave Ellis Visuals - Dundee Based Web Studio providing affordable Web Design & Development for the self employed and small businesses in the east of Scotland">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+        <!-- Facebook & LinkedIn -->
+        <meta property="og:title" content="Dave Ellis Visuals" />
+        <meta property="og:description" content="Dundee Based Web Studio providing affordable Web Design & Development for the self employed and small businesses in the east of Scotland" />
+        <meta property="og:image" content="https://daveellis.dev/fbogsharer.jpg"/>
+        <meta property="og:image:secure_url" content="https://daveellis.dev/fbogsharer.jpg"/>
+        <meta property='og:url' content="https://daveellis.dev/" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@DaveEllisDev">
+        <meta name="twitter:creator" content="@DaveEllisDev">
+        <meta name="twitter:title" content="Dave Ellis Visuals">
+        <meta name="twitter:description" content="Dundee Based Web Studio providing affordable Web Design & Development for the self employed and small businesses in the east of Scotland">
+        <meta name="twitter:image" content="https://daveellis.dev/fbogsharer.jpg">
+
+        <!-- Favicon-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- My Imports-->
+        <link rel="stylesheet" href="assets/dev-style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>XYZ Editor</h1>
-        <div class="container">
-            <div class="inputs">
-                <h1>Input</h1>
-                <form action="" class="input">
-                    <textarea name="input-text" id="input-text" rows="40"></textarea>
-                </form>
-
-                <h1>Modifier</h1>
-                <form action="" class="modifiders">
-                    <div class="x">
-                        <label for="x-modifier">X</label>
-                        <input type="number" id="x-modifier" name="x-modifier">
+        <section id="header">
+            <div class="header-title">
+                <h1><a href="../about">Back to About .DEV</a></h1>
+            </div>
+            <div class="header-logo">
+                <img src="assets/imgs/xyz.png" alt="XYZ Logo">
+            </div>
+            <!-- <nav>
+                <h3><a href="#xyz">xyz</a></h3>
+            </nav> -->
+        </section>
+        <section id=xyz>
+            <div class="sidebar">
+                <span class="emoji">🧭</span>
+                <h2>XYZ Editor</h2>
+            </div>
+            <div class="content">
+                <div class="inputs">
+                    <h1>Input</h1>
+                    <form action="" class="input">
+                        <textarea name="input-text" id="input-text" rows="40"></textarea>
+                    </form>
+    
+                    <h1>Modifier</h1>
+                    <form action="" class="modifiders">
+                        <div class="x">
+                            <label for="x-modifier">X</label>
+                            <input type="number" id="x-modifier" name="x-modifier">
+                        </div>
+                        <div class="z">
+                            <label for="z-modifier">Z</label>
+                            <input type="number" id="z-modifier" name="z-modifier">
+                        </div>
+                        <div class="y">
+                            <label for="y-modifier">Y</label>
+                            <input type="number" id="y-modifier" name="y-modifier">
+                        </div>                
+                    </form>
+    
+                    <div class="do-magic">
+                        <button class="button" id="magic">DO MAGIC</button>
                     </div>
-                    <div class="z">
-                        <label for="z-modifier">Z</label>
-                        <input type="number" id="z-modifier" name="z-modifier">
+                    <div class="test-content">
+                        <button class="button" id="test">INSERT TEST CONTENT</button>
                     </div>
-                    <div class="y">
-                        <label for="y-modifier">Y</label>
-                        <input type="number" id="y-modifier" name="y-modifier">
-                    </div>                
-                </form>
-
-                <div class="do-magic">
-                    <button class="button" id="magic">DO MAGIC</button>
                 </div>
-                <div class="test-content">
-                    <button class="button" id="test">INSERT TEST CONTENT</button>
+    
+                <div class="outputs">
+                    <h1>Output</h1>
+                    <form action="" class="input">
+                        <textarea name="put-text" id="ouput-text" rows="40"></textarea>
+                    </form>
+                    <div class="copy">
+                        <button class="button" id="copy">COPY</button>
+                    </div> 
                 </div>
             </div>
-
-            <div class="outputs">
-                <h1>Output</h1>
-                <form action="" class="input">
-                    <textarea name="put-text" id="ouput-text" rows="40"></textarea>
-                </form>
-                <!-- <div class="reset">
-                    <button class="button" id="reset">RESET</button>
-                </div>  -->
-                <div class="copy">
-                    <button class="button" id="copy">COPY</button>
-                </div> 
+        </section>
+        <footer id="contact">
+            <div class="contact">
+                <div class="email">
+                    <a href="mailto:dave@daveellis.dev?subject=Hello%20👋">
+                    <img src="../assets/logo-email.png" alt="Email Link">
+                    <p>Email</p></a>
+                </div>
+                <div class="twitter">
+                        <a href="https://twitter.com/DaveEllisDev">
+                    <img src="../assets/logo-twitter.png" alt="Twitter Link">
+                    <p>Twitter</p></a>
+                </div>
+                <div class="github">
+                        <a href="https://github.com/daveellisdev">
+                    <img src="../assets/logo-github.png" alt="GitHub Link">
+                    <p>GitHub</p></a>
+                </div>
+                <div class="strava">
+                        <a href="https://www.strava.com/athletes/daveellisdev">
+                    <img src="../assets/logo-strava.png" alt="Strava Link">
+                    <p>Strava</p></a>
+                </div>
             </div>
-        </div>  
-        
-        <script src="script.js" async defer></script>
+            <div class="copyright">Copyright Dave Ellis Visuals 2019</div>
+        </footer>
+        <script src="assets/script.js" async defer></script>
     </body>
 </html>
