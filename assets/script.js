@@ -4,6 +4,7 @@ let outputText = getEl("#ouput-text");
 let xMod = getEl("#x-modifier");
 let zMod = getEl("#z-modifier");
 let yMod = getEl("#y-modifier");
+let instructions = getEl(".instructions");
 
 // Event Listeners 
 getEl("#magic").addEventListener("click", magic);
@@ -27,7 +28,15 @@ function magic(){
     x = parseFloat(xMod.value);
     z = parseFloat(zMod.value);
     y = parseFloat(yMod.value);
-    console.log(`Modifying X, Z, Y by ${x}, ${z}, ${y}`);
+
+    // if any inputs are not numbers, display error and stop
+    if(isNaN(x) || isNaN(y) || isNaN(z)){
+      instructions.classList.add("error");
+      return
+    } else {
+      // removes error on re-run of function
+      instructions.classList.remove("error");
+    }
 
     // do magic (split into array)
     for(let i=0; i<inputArray.length; i++){
@@ -168,33 +177,33 @@ ReflectionProbe=IrradProbe_9
 
 // jQuery Smooth Scrolling
 
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+// $(document).ready(function(){
+//   // Add smooth scrolling to all links
+//   $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+//     // Make sure this.hash has a value before overriding default behavior
+//     if (this.hash !== "") {
+//       // Prevent default anchor click behavior
+//       event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+//       // Store hash
+//       var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top - 0
-      }, 800, function(){
+//       // Using jQuery's animate() method to add smooth page scroll
+//       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+//       $('html, body').animate({
+//         scrollTop: $(hash).offset().top - 0
+//       }, 800, function(){
 
-      });
-    } // End if
-  });
-});
+//       });
+//     } // End if
+//   });
+// });
 
-$(window).scroll(function() { // when the page is scrolled run this
-  if($(this).scrollTop() > 500) { // if you're NOT at the top
-      $('.to-top').fadeIn("fast"); // fade in
-  } else { // else
-      $('.to-top').fadeOut("fast"); // fade out
-  }
-});
+// $(window).scroll(function() { // when the page is scrolled run this
+//   if($(this).scrollTop() > 500) { // if you're NOT at the top
+//       $('.to-top').fadeIn("fast"); // fade in
+//   } else { // else
+//       $('.to-top').fadeOut("fast"); // fade out
+//   }
+// });
