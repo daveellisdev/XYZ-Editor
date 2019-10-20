@@ -11,10 +11,10 @@ getEl("#magic").addEventListener("click", magic);
 getEl("#test").addEventListener("click", test);
 getEl("#copy").addEventListener("click", copyText);
 
-function magic(){
+function magic() {
 
     // variable setup
-    let x, y ,z, posString;
+    let x, y, z, posString;
     let buildPosString = '';
     let buildOutputString = '';
 
@@ -30,19 +30,19 @@ function magic(){
     y = parseFloat(yMod.value);
 
     // if any inputs are not numbers, display error and stop
-    if(isNaN(x) || isNaN(y) || isNaN(z)){
-      instructions.classList.add("error");
-      return
+    if (isNaN(x) || isNaN(y) || isNaN(z)) {
+        instructions.classList.add("error");
+        return
     } else {
-      // removes error on re-run of function
-      instructions.classList.remove("error");
+        // removes error on re-run of function
+        instructions.classList.remove("error");
     }
 
     // do magic (split into array)
-    for(let i=0; i<inputArray.length; i++){
+    for (let i = 0; i < inputArray.length; i++) {
 
         // if line begins with Pos= then take it apart
-        if(inputArray[i].includes(`Pos=`)){
+        if (inputArray[i].includes(`Pos=`)) {
             posString = inputArray[i].slice(7);
             posString = posString.slice(0, -1);
             posArray = posString.split(',');
@@ -60,12 +60,12 @@ function magic(){
     }
 
     // rebuild string
-    for(let i=0; i<inputArray.length; i++){
+    for (let i = 0; i < inputArray.length; i++) {
 
         buildOutputString = `${buildOutputString}${inputArray[i]}`;
 
         // don't add an additional line break at the end
-        if(i<(inputArray.length-1)){
+        if (i < (inputArray.length - 1)) {
             buildOutputString = buildOutputString + "\n";
         }
     }
@@ -79,19 +79,19 @@ function magic(){
 }
 
 // copy text to clipboard
-function copyText(){
+function copyText() {
     let copyText = outputText = getEl("#ouput-text");
     copyText.select();
     document.execCommand("copy");
 }
 
 // function to replace document.querySelector
-function getEl(str){
+function getEl(str) {
     return document.querySelector(str);
 }
 
 // insert test content 
-function test(){
+function test() {
     console.log(`Inserting Test Data`);
     inputText.value = `ReflectionProbe=IrradProbe_0
 {
@@ -174,36 +174,3 @@ ReflectionProbe=IrradProbe_9
   Pos=(37.424007,41.163002,756.957031)
 }`
 }
-
-// jQuery Smooth Scrolling
-
-// $(document).ready(function(){
-//   // Add smooth scrolling to all links
-//   $("a").on('click', function(event) {
-
-//     // Make sure this.hash has a value before overriding default behavior
-//     if (this.hash !== "") {
-//       // Prevent default anchor click behavior
-//       event.preventDefault();
-
-//       // Store hash
-//       var hash = this.hash;
-
-//       // Using jQuery's animate() method to add smooth page scroll
-//       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-//       $('html, body').animate({
-//         scrollTop: $(hash).offset().top - 0
-//       }, 800, function(){
-
-//       });
-//     } // End if
-//   });
-// });
-
-// $(window).scroll(function() { // when the page is scrolled run this
-//   if($(this).scrollTop() > 500) { // if you're NOT at the top
-//       $('.to-top').fadeIn("fast"); // fade in
-//   } else { // else
-//       $('.to-top').fadeOut("fast"); // fade out
-//   }
-// });
